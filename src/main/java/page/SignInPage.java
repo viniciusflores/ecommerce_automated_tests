@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Locale;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.Color;
 import org.testng.TestNGException;
 
@@ -15,13 +16,22 @@ import core.BasePage;
 public class SignInPage extends BasePage {
 	protected Faker fake = new Faker(new Locale("en-US"));
 
+	public void performLogin(String username, String password) {
+		writeAndSendKey(By.id("email"), username, Keys.TAB);
+		writeAndSendKey(By.id("passwd"), password, Keys.TAB);
+		if (verifyFieldCSSValidationIsGreen(By.id("email")).equals(false)) {
+			throw new TestNGException("Not possible validade the css animation of field");
+		}
+		click(By.id("SubmitLogin"));
+	}
+
 	public void performNewUserRegister() {
 		accessCreateNewAccount();
 		fillCreateUserPage();
 	}
 
 	public void accessCreateNewAccount() {
-		writeAndSendTab(By.id("email_create"), fake.internet().safeEmailAddress());
+		writeAndSendKey(By.id("email_create"), fake.internet().safeEmailAddress(), Keys.TAB);
 		if (verifyFieldCSSValidationIsGreen(By.id("email_create")).equals(false)) {
 			throw new TestNGException("Not possible validade the css animation of field");
 		}
@@ -79,11 +89,11 @@ public class SignInPage extends BasePage {
 	}
 
 	public void fillCustomerFirstName() {
-		writeAndSendTab(By.id("customer_firstname"), fake.name().firstName());
+		writeAndSendKey(By.id("customer_firstname"), fake.name().firstName(), Keys.TAB);
 	}
 
 	public void fillCustomerLastName() {
-		writeAndSendTab(By.id("customer_lastname"), fake.name().lastName());
+		writeAndSendKey(By.id("customer_lastname"), fake.name().lastName(), Keys.TAB);
 	}
 
 	public void fillEmail() {
@@ -94,7 +104,7 @@ public class SignInPage extends BasePage {
 	}
 
 	public void fillPassword() {
-		writeAndSendTab(By.id("passwd"), fake.internet().password());
+		writeAndSendKey(By.id("passwd"), fake.internet().password(), Keys.TAB);
 	}
 
 	public void fillCompleteDateOfBirth() {
@@ -148,7 +158,7 @@ public class SignInPage extends BasePage {
 	}
 
 	public void fillZipCode() {
-		write(By.id("postcode"), fake.address().zipCode());
+		write(By.id("postcode"), Long.toString(fake.number().randomNumber(5, true)));
 	}
 
 	public void fillCountry() {

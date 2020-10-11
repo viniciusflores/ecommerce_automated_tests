@@ -52,21 +52,21 @@ public class BasePage extends DriverFactory {
 		}
 	}
 
-	public void write(By by, String texto) {
+	public void write(By by, String text) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.presenceOfElementLocated(by));
-			driver.findElement(by).sendKeys(texto);
+			driver.findElement(by).sendKeys(text);
 		} catch (Exception e) {
 			throw new NoSuchElementException("Element not found: " + e.getMessage());
 		}
 	}
 
-	public void writeAndSendTab(By by, String texto) {
+	public void writeAndSendKey(By by, String text, Keys key) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.presenceOfElementLocated(by));
-			driver.findElement(by).sendKeys(texto, Keys.TAB);
+			driver.findElement(by).sendKeys(text, key);
 		} catch (Exception e) {
 			throw new NoSuchElementException("Element not found: " + e.getMessage());
 		}
@@ -247,7 +247,7 @@ public class BasePage extends DriverFactory {
 	}
 
 	public void commandJS(String command) {
-		js.executeScript(command, "");
+		js.executeScript(command);
 	}
 
 	public void commandJS(String command, String argument) {

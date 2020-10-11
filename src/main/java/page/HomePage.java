@@ -1,6 +1,7 @@
 package page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import core.BasePage;
 
@@ -21,4 +22,15 @@ public class HomePage extends BasePage {
 		click(By.xpath("//a[@title='Blouses']"));
 	}
 
+	public void clickOnMainLogo() {
+		click(By.id("header_logo"));
+	}
+
+	public void performSearchQuery(String query) {
+		writeAndSendKey(By.id("search_query_top"), query, Keys.ENTER);
+	}
+	
+	public void accessProductByTitle(String title) {
+		click(By.cssSelector("a.product-name[title='"+title+"']"));
+	}
 }
