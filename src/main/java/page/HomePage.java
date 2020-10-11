@@ -27,6 +27,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void performSearchQuery(String query) {
+		clearTextField(By.id("search_query_top"));
 		writeAndSendKey(By.id("search_query_top"), query, Keys.ENTER);
 	}
 	
