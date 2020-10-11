@@ -28,4 +28,8 @@ public class OrderPage extends BasePage {
 	public void confirmMyOrder() {
 		click(By.cssSelector("button.button.btn.btn-default.button-medium"));
 	}
+
+	public void removeItemFromCart() {
+		click(By.cssSelector("i.icon-trash"));
+	}
 }

@@ -6,7 +6,7 @@
 	<test name="CHROME tests">
 		<parameter name="browser" value="CHROME_LOCAL" />
 		<classes>
-			<class name="test.SimplePurchaseTest" />
+			<class name="test.CartQuantityTests" />
 		</classes>
 	</test>
 </suite>

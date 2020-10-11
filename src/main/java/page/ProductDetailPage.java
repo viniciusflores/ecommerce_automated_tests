@@ -15,8 +15,21 @@ public class ProductDetailPage extends BasePage {
 	}
 
 	public void clickProceedToCheckout() {
-		waitElementToBeClickable(By.xpath("//a[@title='Proceed to checkout']"));
-		click(By.xpath("//a[@title='Proceed to checkout']"));
+		waitElementToBeClickable(By.cssSelector("a.btn[title='Proceed to checkout']"));
+		click(By.cssSelector("a.btn[title='Proceed to checkout']"));
+	}
+
+	public void clickContinueShopping() {
+		waitElementToBeClickable(By.cssSelector("span.continue[title='Continue shopping']"));
+		click(By.cssSelector("span.continue[title='Continue shopping']"));
+	}
+	
+	public void clickOnIconPlus() {
+		click(By.cssSelector("i.icon-plus"));
+	}
+
+	public void clickOnIconMinus() {
+		click(By.cssSelector("i.icon-minus"));
 	}
 
 }
