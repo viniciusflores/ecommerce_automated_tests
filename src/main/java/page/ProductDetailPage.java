@@ -24,12 +24,18 @@ public class ProductDetailPage extends BasePage {
 		click(By.cssSelector("span.continue[title='Continue shopping']"));
 	}
 	
-	public void clickOnIconPlus() {
+	public void clickIconAddUnityItem() {
 		click(By.cssSelector("i.icon-plus"));
 	}
 
-	public void clickOnIconMinus() {
+	public void clickIconRemoveUnityItem() {
 		click(By.cssSelector("i.icon-minus"));
+	}
+
+	public void sendWantedQuantityToItem(String quantity) {
+		clearTextField(By.id("quantity_wanted"));
+		write(By.id("quantity_wanted"),quantity);
+		
 	}
 
 }
