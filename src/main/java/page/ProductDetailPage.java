@@ -35,7 +35,9 @@ public class ProductDetailPage extends BasePage {
 	public void sendWantedQuantityToItem(String quantity) {
 		clearTextField(By.id("quantity_wanted"));
 		write(By.id("quantity_wanted"),quantity);
-		
 	}
 
+	public void closeModalItemAddedToCart() {
+		click(By.cssSelector("span.cross"));
+	}
 }

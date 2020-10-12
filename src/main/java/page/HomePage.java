@@ -26,4 +26,8 @@ public class HomePage extends BasePage {
 	public void accessProductByTitle(String title) {
 		click(By.cssSelector("a.product-name[title='"+title+"']"));
 	}
+	
+	public void expandCartModal() {
+		scrollToElement(By.cssSelector("a[title='View my shopping cart']"));
+	}
 }
