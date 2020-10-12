@@ -24,6 +24,10 @@ public class OrderPage extends BasePage {
 	public void selectPaymentByBank() {
 		click(By.className("bankwire"));
 	}
+	
+	public void selectPaymentByCheck() {
+		click(By.className("cheque"));
+	}
 
 	public void confirmMyOrder() {
 		click(By.cssSelector("button.button.btn.btn-default.button-medium"));

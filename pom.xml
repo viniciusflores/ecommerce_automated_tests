@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.viniciusflores-qa</groupId>
-	<artifactId>Web-Test-Investment-Simulator</artifactId>
+	<artifactId>ecommerce-automated-tests</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Web-Test-Investment-Simulator</name>
+	<name>Ecommerce Automated Tests</name>
 	<build>
 		<testSourceDirectory>src/main/java/test</testSourceDirectory>
 		<pluginManagement>
@@ -16,8 +16,11 @@
 					<version>2.18</version>
 					<configuration>
 						<suiteXmlFiles>
-							<suiteXmlFile>src/main/java/suite/testNG.xml</suiteXmlFile>
-						</suiteXmlFiles>
+ 							<suiteXmlFile>src/main/java/suite/CHROME.xml</suiteXmlFile>
+							<suiteXmlFile>src/main/java/suite/CHROME_LOCAL.xml</suiteXmlFile>
+							<suiteXmlFile>src/main/java/suite/GRID.xml</suiteXmlFile>
+							<suiteXmlFile>src/main/java/suite/FIREFOX.xml</suiteXmlFile>
+ 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
 			</plugins>

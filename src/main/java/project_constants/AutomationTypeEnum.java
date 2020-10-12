@@ -1,5 +1,5 @@
 package project_constants;
 
 public enum AutomationTypeEnum {
-	CHROME, CHROME_LOCAL, FIREFOX, ANDROID, IPHONE;
+	CHROME, CHROME_LOCAL, FIREFOX, GRID, ANDROID, IPHONE;
 }
