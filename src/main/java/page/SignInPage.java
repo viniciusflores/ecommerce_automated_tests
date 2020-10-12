@@ -43,7 +43,7 @@ public class SignInPage extends BasePage {
 	}
 
 	private void verifyCssAnimationFromSignInPage() {
-		List<Boolean> fieldsCss = new ArrayList<Boolean>();
+		List<Boolean> fieldsCss = new ArrayList<>();
 		fieldsCss.add(verifyFieldCSSValidationIsGreen(By.id("customer_firstname")));
 		fieldsCss.add(verifyFieldCSSValidationIsGreen(By.id("customer_lastname")));
 		fieldsCss.add(verifyFieldCSSValidationIsGreen(By.id("email")));
