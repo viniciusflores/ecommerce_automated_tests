@@ -9,7 +9,7 @@
 			<class name="test.CartDropdownTest" />
 			<class name="test.CartQuantityTests" />
 			<class name="test.CartPriceTests" />
-			<class name="test.SimplePurchaseTest" />
+			<class name="test.PurchaseTest" />
 			<class name="test.RegisterAndAuthenticationRulesTest" />
 		</classes>
 	</test>

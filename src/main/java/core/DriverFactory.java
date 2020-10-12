@@ -40,7 +40,7 @@ public class DriverFactory {
 					WebDriverManager.chromedriver().setup();
 					//chromeOptions.addArguments("--window-size=1024,768");
 					chromeOptions.addArguments("--start-maximized");
-					//chromeOptions.addArguments("--headless");
+					chromeOptions.addArguments("--headless");
 					driver = new ChromeDriver(chromeOptions);
 					//driver.manage().window().fullscreen();
 					break;

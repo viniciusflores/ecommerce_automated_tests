@@ -13,7 +13,7 @@ import page.OrderPage;
 import page.ProductDetailPage;
 import page.SignInPage;
 
-public class SimplePurchaseTest extends BaseTest {
+public class PurchaseTest extends BaseTest {
 	private HomePage home = new HomePage();
 	private ProductDetailPage detail = new ProductDetailPage();
 	private OrderPage order = new OrderPage();
@@ -110,6 +110,34 @@ public class SimplePurchaseTest extends BaseTest {
 		assertEquals(home.getText(By.cssSelector("h3.page-subheading")), "CHECK PAYMENT");
 		order.confirmMyOrder();
 		assertEquals(home.getText(By.cssSelector("p.alert.alert-success")), "Your order on My Store is complete.");
+	}
+
+	@Test
+	public void dontCompletePurchaseWithoutUserAcceptTerms() {
+		assertEquals(home.getText(By.className("ajax_cart_no_product")), "(empty)");
+		home.performSearchQuery("t-shirt");
+		home.accessProductByTitle("Faded Short Sleeve T-shirts");
+		assertEquals(home.getText(By.id("our_price_display")), "$16.51");
+		detail.addItemToCart();
+		assertTrue(detail.verifySuccessModalAddToCard());
+		detail.clickProceedToCheckout();
+		home.performSearchQuery("Printed Chiffon Dress");
+		home.accessProductByTitle("Printed Chiffon Dress");
+		detail.clickIconAddUnityItem();
+		detail.addItemToCart();
+		BasePage.stop(2000);
+		assertTrue(detail.verifySuccessModalAddToCard());
+		detail.clickProceedToCheckout();
+		assertTrue(home.existElement(By.cssSelector("li.step_current.first")));
+		order.clickProceedToCheckout();
+		assertTrue(home.existElement(By.cssSelector("li.step_current.second")));
+		signIn.performLogin(username, password);
+		assertTrue(home.existElement(By.cssSelector("li.step_current.third")));
+		order.clickProceedAdress();
+		assertTrue(home.existElement(By.cssSelector("li.step_current.four")));
+		order.clickProceedShipping();
+		assertEquals(order.getText(By.cssSelector("p.fancybox-error")),
+				"You must agree to the terms of service before continuing.");
 	}
 
 }
