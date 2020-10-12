@@ -4,7 +4,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.By;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import core.BasePage;
@@ -23,7 +22,7 @@ public class SimplePurchaseTest extends BaseTest {
 	private String username = "zenviaproject@email.com";
 	private String password = "P@ssw0rd";
 
-	@Ignore
+	@Test
 	public void createAccountAndBuyOneItem() {
 		assertEquals(home.getText(By.className("ajax_cart_no_product")), "(empty)");
 		home.clickSignInButton();
@@ -49,7 +48,7 @@ public class SimplePurchaseTest extends BaseTest {
 		assertEquals(home.getText(By.cssSelector("p.cheque-indent")), "Your order on My Store is complete.");
 	}
 
-	@Ignore
+	@Test
 	public void useExistentUserToBuyOneItem() {
 		assertEquals(home.getText(By.className("ajax_cart_no_product")), "(empty)");
 		home.performSearchQuery("t-shirt");
@@ -106,10 +105,11 @@ public class SimplePurchaseTest extends BaseTest {
 		order.acceptTermsOfService();
 		order.clickProceedShipping();
 		assertTrue(home.existElement(By.cssSelector("li.step_current.last")));
-		order.selectPaymentByBank();
-		assertEquals(home.getText(By.cssSelector("h3.page-subheading")), "BANK-WIRE PAYMENT.");
+
+		order.selectPaymentByCheck();
+		assertEquals(home.getText(By.cssSelector("h3.page-subheading")), "CHECK PAYMENT");
 		order.confirmMyOrder();
-		assertEquals(home.getText(By.cssSelector("p.cheque-indent")), "Your order on My Store is complete.");
+		assertEquals(home.getText(By.cssSelector("p.alert.alert-success")), "Your order on My Store is complete.");
 	}
 
 }
