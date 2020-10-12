@@ -10,6 +10,7 @@
 			<class name="test.CartQuantityTests" />
 			<class name="test.CartPriceTests" />
 			<class name="test.SimplePurchaseTest" />
+			<class name="test.RegisterAndAuthenticationRulesTest" />
 		</classes>
 	</test>
 </suite>
