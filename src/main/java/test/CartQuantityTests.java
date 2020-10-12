@@ -25,7 +25,7 @@ public class CartQuantityTests extends BaseTest {
 		detail.addItemToCart();
 		assertTrue(detail.verifySuccessModalAddToCard());
 		detail.clickContinueShopping();
-		detail.clickOnIconPlus();
+		detail.clickIconAddUnityItem();
 		detail.addItemToCart();
 		assertTrue(detail.verifySuccessModalAddToCard());
 		detail.clickProceedToCheckout();
@@ -40,8 +40,8 @@ public class CartQuantityTests extends BaseTest {
 		assertEquals(home.getText(By.className("ajax_cart_no_product")), "(empty)");
 		home.performSearchQuery("t-shirt");
 		home.accessProductByTitle("Faded Short Sleeve T-shirts");
-		detail.clickOnIconPlus();
-		detail.clickOnIconPlus();
+		detail.clickIconAddUnityItem();
+		detail.clickIconAddUnityItem();
 		detail.addItemToCart();
 		assertTrue(detail.verifySuccessModalAddToCard());
 		detail.clickProceedToCheckout();
@@ -49,7 +49,7 @@ public class CartQuantityTests extends BaseTest {
 		assertEquals(home.getText(By.cssSelector(".ajax_cart_quantity")), "3");
 		assertEquals(home.getAtributeFromHtml(By.cssSelector("input.cart_quantity_input.form-control.grey"), "value"),
 				"3");
-		detail.clickOnIconMinus();
+		detail.clickIconRemoveUnityItem();
 		BasePage.stop(2000);
 		assertTrue(home.existElement(By.cssSelector("li.step_current.first")));
 		assertEquals(home.getText(By.cssSelector(".ajax_cart_quantity")), "2");
@@ -67,7 +67,7 @@ public class CartQuantityTests extends BaseTest {
 		detail.clickContinueShopping();
 		home.performSearchQuery("Printed Chiffon Dress");
 		home.accessProductByTitle("Printed Chiffon Dress");
-		detail.clickOnIconPlus();
+		detail.clickIconAddUnityItem();
 		detail.addItemToCart();
 		assertTrue(detail.verifySuccessModalAddToCard());
 		detail.clickProceedToCheckout();

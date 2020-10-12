@@ -143,13 +143,13 @@ public class BasePage extends DriverFactory {
 		}
 	}
 
-	public List<String> returnAllValuesFromCombo(By by, String value) {
+	public List<String> returnAllValuesFromCombo(By by) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 15);
 			wait.until(ExpectedConditions.presenceOfElementLocated(by));
 			Select combo = new Select(driver.findElement(by));
 			List<WebElement> allSelectedOptions = combo.getAllSelectedOptions();
-			List<String> values = new ArrayList<String>();
+			List<String> values = new ArrayList<>();
 			for (WebElement option : allSelectedOptions) {
 				values.add(option.getText());
 			}

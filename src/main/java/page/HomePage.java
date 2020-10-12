@@ -14,14 +14,6 @@ public class HomePage extends BasePage {
 		return getText(By.className("ajax_cart_no_product"));
 	}
 
-	public void showMenuWomenCategory() {
-		scrollToElement(By.xpath("//a[@title='Women']"));
-	}
-
-	public void accessWomanCategoryBlouses() {
-		click(By.xpath("//a[@title='Blouses']"));
-	}
-
 	public void clickOnMainLogo() {
 		click(By.id("header_logo"));
 	}
@@ -33,5 +25,9 @@ public class HomePage extends BasePage {
 	
 	public void accessProductByTitle(String title) {
 		click(By.cssSelector("a.product-name[title='"+title+"']"));
+	}
+	
+	public void expandCartModal() {
+		scrollToElement(By.cssSelector("a[title='View my shopping cart']"));
 	}
 }
