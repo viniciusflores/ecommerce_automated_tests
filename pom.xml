@@ -17,8 +17,6 @@
 					<configuration>
 						<suiteXmlFiles>
  							<suiteXmlFile>src/main/java/suite/CHROME.xml</suiteXmlFile>
-							<suiteXmlFile>src/main/java/suite/CHROME_LOCAL.xml</suiteXmlFile>
-							<suiteXmlFile>src/main/java/suite/GRID.xml</suiteXmlFile>
 							<suiteXmlFile>src/main/java/suite/FIREFOX.xml</suiteXmlFile>
  						</suiteXmlFiles>
 					</configuration>
